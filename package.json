@@ -1,0 +1,20 @@
+{
+  "name": "node-simple-server",
+  "version": "1.0.0",
+  "description": "vue搭建的简单服务器，用于测试项目常见请求",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangyangteng/node-simple-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangyangteng/node-simple-server/issues"
+  },
+  "homepage": "https://github.com/huangyangteng/node-simple-server#readme"
+}
