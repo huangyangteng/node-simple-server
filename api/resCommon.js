@@ -3,16 +3,16 @@ const Jwt=require('./jwt')
 class ResCommon{
     constructor(){
         this.mapErrorInfo={
-            '40001':'令牌无效',
-            '50000':'系统错误',
-            '60000':'数据库操作失败',
+            '400001':'令牌无效',
+            '500000':'系统错误',
+            '600000':'数据库操作失败',
             '70000':'文件操作失败'
         }
-        this.errorList=[40001,50000,60000,70000]
+        this.errorList=[400001,500000,600000,700000]
     }
     success(data=[]){
         return {
-            code:'20000',
+            code:'200000',
             info:'success',
             jwt:Jwt.getJwt(),
             data:data
@@ -34,7 +34,7 @@ class ResCommon{
         }else{
             return {
                 validation:false,
-                res:this.error(40001)
+                res:this.error(400001)
             }
         }
         

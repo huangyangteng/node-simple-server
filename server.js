@@ -29,7 +29,7 @@ const server=http.createServer((req,res)=>{
 
         var result=Res.interceptor(headers.jwt)
 
-        if(result.validation || url=='/administrator/login'){//验证通过
+        if(result.validation || url=='/api/administrator/login'){//验证通过
             const resData=MAP_URL[mapKey]()
             res.write(JSON.stringify(resData))
         }else{
