@@ -12,9 +12,10 @@ function getMapKey(map,url){
 
 
 const {administrator,task,error} =Controller
+
 const MAP_URL={//顺序很重要 遍历时是按照顺序进行的  /user /user/add 
     'default':Controller.default,
-    '/administrator/login':administrator.login,
+    '/api/administrator/login':administrator.login,
     '/task/array':task.array,
     'error':error.random,
     

@@ -12,8 +12,11 @@ const server=http.createServer((req,res)=>{
     if(url=='/'){//访问根目录时，默认访问下面的index.html
         url='/index.html'
     }
-
+    
+    console.log("TCL: url", url)
+    
     if(typeof mapKey=='undefined'){//如果是静态资源,从www文件夹下读取
+        
         fs.readFile(`www${url}`,(err,buffer)=>{
             if(err){
                 res.writeHead(404)
@@ -31,11 +34,14 @@ const server=http.createServer((req,res)=>{
 
         if(result.validation || url=='/api/administrator/login'){//验证通过
             const resData=MAP_URL[mapKey]()
-            res.write(JSON.stringify(resData))
+            setTimeout(()=>{
+                res.write(JSON.stringify(resData))
+                res.end()
+            },2000)
         }else{
             res.write(JSON.stringify(result.res))
+            res.end()
         }
-        res.end()
 
         
     }
