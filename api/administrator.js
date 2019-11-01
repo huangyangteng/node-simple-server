@@ -14,7 +14,9 @@ const administrator={
                adminState:'00'
 
         }
-        return Res.success(data)
+        setTimeout(()=>{
+            return Res.success(data)
+        },2500)
         
     }
 }
