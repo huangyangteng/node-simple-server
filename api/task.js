@@ -1,4 +1,9 @@
 const Res=require('./resCommon')
+
+class Task{
+
+}
+
 const task={
     array(){
         let data=[
@@ -7,6 +12,9 @@ const task={
             {id:3,taskType:'NORMAL',flowType:'logOut',provinceId:280},
         ]
         return Res.success(data)
+        
+    },
+    flow(){
         
     }
 }
