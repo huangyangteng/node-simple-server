@@ -33,11 +33,24 @@ const server=http.createServer((req,res)=>{
         var result=Res.interceptor(headers.jwt)
 
         if(result.validation || url=='/api/administrator/login'){//验证通过
-            const resData=MAP_URL[mapKey]()
-            setTimeout(()=>{
-                res.write(JSON.stringify(resData))
-                res.end()
-            },2000)
+            // const resData=MAP_URL[mapKey](req,res)
+            const p=MAP_URL[mapKey](req,res)
+            if(typeof p.then == 'undefined'){
+                setTimeout(()=>{
+                    res.write(JSON.stringify(p))
+                    res.end()
+                },500)
+            }else{
+                p.then((resData)=>{
+                    res.write(JSON.stringify(resData))
+                    res.end()
+                })
+                .catch((errData)=>{
+                    res.write(JSON.stringify(errData))
+                    res.end()
+                })
+
+            }
         }else{
             res.write(JSON.stringify(result.res))
             res.end()

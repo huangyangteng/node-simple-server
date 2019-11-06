@@ -4,82 +4,99 @@
 
 
 
-## 0.启动服务
+## 一、编写接口流程
 
-```shell
-#启动
-pm2 start server.js --name node-monitor-service
-## 停止
-pm2 stop 
-```
+## 前置知识
 
+### 1. 数据储存在文件中,统一存放在`data`目录下
+
+### 2. 需要nodejs的小部分知识，包括http,fs模块的使用，模块的导入导出知识
 
 
-## 1. 测试登录
 
-地址：[/api/login](http://10.1.62.116:55555/api/login)
 
-返回用户相关信息，不区分get,post请求
+以`角色管理`为例，接口文档如下：
 
-返回数据：
+![image-20191106144547451](https://tva1.sinaimg.cn/large/006y8mN6ly1g8obh03khaj30kg0kijtk.jpg)
 
-```json
-{
-  "code": 20000,
-  "info": "success",
-  "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHQiOjE1NzA3ODgxNjQ3NjcsInVpZCI6IjEiLCJpYXQiOjE1NzA3ODYzNjQ3NjcsImlwIjoiMTAuNC4wLjE0NyJ9.0oGnLppvrSCrENvWJVpD7baXr6iTwh26bWa5wGTNRNA",
-  "data": {
-  "userID": 1,
-  "phone": 15196235245
-  }
-}
-```
+##  第一步 新建数据
 
-## 2. 测试jwt
+在`data`目录下新建`role.json`
 
-地址： [/api/task/array](http://10.1.62.116:55555/api/task/array)
+## 第二步 编写接口
 
-请求头中添加了`jwt`字段，且`jwt`字段的值等于登录时返回的jwt才能通过校验，正常返回数据
-
-返回数据：
+在`api`目录下新建`role.js`,引入相应依赖，并导出role对象
 
 ```js
-{
-    "code": 20000,
-    "info": "success",
-    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHQiOjE1NzA3ODgxNjQ3NjcsInVpZCI6IjEiLCJpYXQiOjE1NzA3ODYzNjQ3NjcsImlwIjoiMTAuNC4wLjE0NyJ9.0oGnLppvrSCrENvWJVpD7baXr6iTwh26bWa5wGTNRNA",
-    "data": [
-        {
-            "id": 1,
-            "type": "addUser",
-            "provinceid": 230
-        },
-        {
-            "id": 2,
-            "type": "deleteUser",
-            "provinceid": 230
+const fs=require('fs')
+
+const Res=require('./resCommon')
+
+
+
+const role={
+	all(){//获取所有角色
+        let resData=JSON.parse(fs.readFileSync('data/role.json').toString())
+        resData.forEach((item,index)=>item.id=index+1)
+        return Res.success(resData)
+  },
+  add(){//增加一条数据
+    
+  }
+}
+
+module.exports=role
+```
+
+## 第三步 在`Controller.js`中导入并导出该接口
+
+`Controller.js`文件统一管理所有接口
+
+```js
+const administrator=require('./api/administrator')
+const task=require('./api/task')
+const error=require('./api/error')
+const role=require('./api/role')
+const province=require('./api/province')
+
+const Controller={
+    administrator,
+    task,
+    error,
+    role,
+    province
+}
+module.exports=Controller
+```
+
+## 第四步 建立url和接口的映射关系
+
+在`MAP_URL.JS`文件中建立url和接口的映射关系
+
+```js
+const Controller=require('./Controller')
+
+function getMapKey(map,url){
+    for(var key in map){
+        if(url==key){///匹配顺序 user -> /user/add ->/login.html 
+            return key
+        }else if(url.indexOf(key) != -1){
+            return key
         }
-    ]
+    }
+}
+
+const {administrator,role} =Controller
+
+const MAP_URL={//顺序很重要 遍历时是按照顺序进行的  /user /user/add 
+    '/api/administrator/login':administrator.login,
+    '/api/role/all':role.all, // url以/api/role/all开头时，执行role.all方法
+    '/api/role/add':role.add,
+}
+
+module.exports={
+    MAP_URL:MAP_URL,
+    getMapKey:getMapKey
 }
 ```
-
-
-
-## 3. 测试错误响应码
-
-地址：[/api/err/random](http://10.1.62.116:55555/api/err/random)
-
-随机返回一个错误信息
-
-返回数据:
-
-```json
-{
-  "code": 600001,
-  "info": "数据查询失败",
-  "jwt": "",
-  "data": []
-}
-```
-
 

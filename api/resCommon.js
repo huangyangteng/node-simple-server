@@ -6,7 +6,8 @@ class ResCommon{
             '400001':'令牌无效',
             '500000':'系统错误',
             '600000':'数据库操作失败',
-            '70000':'文件操作失败'
+            '70000':'文件操作失败',
+            '80000':'前端HTTP方法错误'
         }
         this.errorList=[400001,500000,600000,700000]
     }
@@ -18,10 +19,12 @@ class ResCommon{
             data:data
         }
     }
-    error(code){
+    error(code,info){
+        info= info || this.mapErrorInfo[code]
         return {
+            
             code,
-            info:this.mapErrorInfo[code],
+            info,
             jwt:'',
             data:[]
         }
@@ -42,6 +45,9 @@ class ResCommon{
     }
     getErrorList(){
         return this.errorList
+    }
+    getReqData(arr){
+        return JSON.parse(arr.concat().toString())
     }
 }
 
