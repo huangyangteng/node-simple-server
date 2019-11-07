@@ -22,7 +22,7 @@ const MAP_URL={//顺序很重要 遍历时是按照顺序进行的  /user /user/
     '/api/role/add':role.add,
     '/api/role/delete':role.delete,
     '/api/province/array':province.array,
-
+    '/api/flow/array':task.flow
     
     
 }

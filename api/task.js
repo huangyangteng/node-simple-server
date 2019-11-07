@@ -1,4 +1,5 @@
 const Res=require('./resCommon')
+const fs=require('fs')
 
 class Task{
 
@@ -15,7 +16,8 @@ const task={
         
     },
     flow(){
-        
+        let resData=JSON.parse(fs.readFileSync('data/taskFlow.json').toString())        
+        return Res.success(resData)
     }
 }
 

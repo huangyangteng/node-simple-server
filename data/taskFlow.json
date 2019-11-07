@@ -1,3 +1,190 @@
 [
-    {}
+    {
+        "id":1,
+        "name":"BUSINESS_WRITE_ON_OFF_CENTRAL_MUSIC",
+        "nameCN":"中音短信开销户流程",
+        "createAdminId":1,
+        "createDate":"2019-10-30 11:12:24",
+        "flowActionArray":[
+            {
+                "flowId":1,
+                "actionId":100101,
+                "actionRank":1,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":1,
+                "actionId":100102,
+                "actionRank":2,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            }
+
+        ]
+    },
+    {
+        "id":2,
+        "name":"BUSINESS_WRITE_ON_OFF_PROVINCE_BOSS",
+        "nameCN":"省BOSS短信开销户流程",
+        "createAdminId":1,
+        "createDate":"2019-10-30 11:12:24",
+        "flowActionArray":[
+            {
+                "flowId":2,
+                "actionId":100201,
+                "actionRank":1,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":2,
+                "actionId":100202,
+                "actionRank":2,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            }
+        ]
+    },
+    {
+        "id":3,
+        "name":"BUSINESS_WRITE_ON_OFF_MIGU_APP",
+        "nameCN":"咪咕APP开销户流程",
+        "createAdminId":1,
+        "createDate":"2019-10-30 11:12:24",
+        "flowActionArray":[
+            {
+                "flowId":3,
+                "actionId":200301,
+                "actionRank":1,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":3,
+                "actionId":100102,
+                "actionRank":2,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            }
+        ]
+    },
+    {
+        "id":4,
+        "name":"BUSINESS_WRITE_ON_OFF_MIGU_H5",
+        "nameCN":"咪咕H5门户开销户流程",
+        "createAdminId":1,
+        "createDate":"2019-10-30 11:12:24",
+        "flowActionArray":[
+            {
+                "flowId":4,
+                "actionId":200401,
+                "actionRank":1,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":4,
+                "actionId":100102,
+                "actionRank":2,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            }
+        ]
+    },
+    {
+        "id":5,
+        "name":"RINGTONE_VIDEO_O_D_I_C",
+        "nameCN":"铃音流程",
+        "createAdminId":1,
+        "createDate":"2019-10-30 11:12:24",
+        "flowActionArray":[
+            {
+                "flowId":5,
+                "actionId":100101,
+                "actionRank":1,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":5,
+                "actionId":200503,
+                "actionRank":2,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":5,
+                "actionId":300710,
+                "actionRank":3,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":5,
+                "actionId":200505,
+                "actionRank":4,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":5,
+                "actionId":300710,
+                "actionRank":5,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":5,
+                "actionId":200506,
+                "actionRank":6,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":5,
+                "actionId":300710,
+                "actionRank":7,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":5,
+                "actionId":200504,
+                "actionRank":8,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":5,
+                "actionId":300710,
+                "actionRank":9,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            },
+            {
+                "flowId":5,
+                "actionId":100102,
+                "actionRank":10,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            }
+        ]
+    },
+    {
+        "id":6,
+        "name":"RINGTONE_VIDEO_DIY_U_D_M_R",
+        "nameCN":"DIY铃音流程",
+        "createAdminId":1,
+        "createDate":"2019-10-30 11:12:24",
+        "flowActionArray":[
+            {
+                "flowId":1,
+                "actionId":200505,
+                "actionRank":1,
+                "createAdminId":1,
+                "createDate":"2019-10-30 11:12:25"
+            }
+        ]
+    }
 ]
