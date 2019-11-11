@@ -1,0 +1,34 @@
+{
+	"list": [
+		{
+			"id": "1",
+			"name": "beijing",
+			"name_cn": "北京"
+		},
+		{
+			"id": "2",
+			"name": "sichuan",
+			"name_cn": "四川"
+		},
+		{
+			"id": "3",
+			"name": "hunan",
+			"name_cn": "湖南"
+		},
+		{
+			"id": "4",
+			"name": "shandong",
+			"name_cn": "山东"
+		},
+		{
+			"id": "5",
+			"name": "xianggang",
+			"name_cn": "香港"
+		},
+		{
+			"id": "6",
+			"name": "zhejiang",
+			"name_cn": "浙江"
+		}
+	]
+}
