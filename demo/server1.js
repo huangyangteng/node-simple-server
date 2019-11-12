@@ -1,6 +1,11 @@
 const http = require('http')
 // 最简单的服务器
 let server=http.createServer((req,res)=>{
+
+    const {url,method}=req
+    console.log("TCL: method", method)
+    console.log("TCL: url", url)
+    
     let resData={
         code:'20000',
         info:'success',
@@ -12,8 +17,10 @@ let server=http.createServer((req,res)=>{
         ]
 
     }
+    
     res.write(JSON.stringify(resData))
     res.end()
+
 })
 
 

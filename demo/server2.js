@@ -1,5 +1,5 @@
 const http = require('http')
-const fs=require('fs')
+const fs=require('fs') 
 // 返回文件
 let server=http.createServer((req,res)=>{
     let {url}=req

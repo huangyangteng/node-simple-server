@@ -18,6 +18,9 @@ const task={
     flow(){
         let resData=JSON.parse(fs.readFileSync('data/taskFlow.json').toString())        
         return Res.success(resData)
+    },
+    add(){
+        return Res.success({info:'增加任务'})
     }
 }
 

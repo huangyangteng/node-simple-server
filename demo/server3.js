@@ -19,9 +19,7 @@ let server=http.createServer((req,res)=>{
         })
         req.on('end',()=>{
             let buffer=Buffer.concat(arr)
-            console.log("TCL: buffer.toString()", buffer.toString())
             let reqData=JSON.parse(buffer.toString())
-            console.log("TCL: JSON.parse(buffer.toString())", JSON.parse(buffer.toString()))
             console.log("TCL: reqData", reqData)
 
             res.write(JSON.stringify({
@@ -30,6 +28,7 @@ let server=http.createServer((req,res)=>{
                 token:'jdfjdjfajkdjkf',
                 data:reqData
             }))
+            
             res.end()
         })
 
@@ -41,6 +40,7 @@ let server=http.createServer((req,res)=>{
             info:'注册成功',
             token:'jdfjdjfajkdjkf',
             data:{
+                code:20000,
                 userId:0,
                 userName:'xiaoming',
                 userPhoneNumber:'165565556454'
