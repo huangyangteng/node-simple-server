@@ -2,10 +2,10 @@ const { getRandomNumber, readFiles, writeFiles } = require('../tools/tool')
 
 const Res = require('./resCommon')
 const alarmRule = {
-    addAlarm(reqData) {
+    addAlarm(req, res, reqData) {
         var alarmRuleList = readFiles("./data/AlarmRules.json")
-        var contactsList = readFiles("./data/contacts.json")
-        var locations = readFiles('./data/locations.json').list
+        var contactsList = readFiles("./data/administrator.json")
+        var locations = readFiles('./data/province.json')
         var contacts = reqData.contact.split(',')
         var result = {
             id: getRandomNumber(6),
@@ -27,13 +27,14 @@ const alarmRule = {
         alarmRuleList.list.unshift(result)
 
         writeFiles('./data/AlarmRules.json', alarmRuleList)
-        alarmRuleList = readFiles("./data/AlarmRules.json")
-        return alarmRuleList
+        return Res.success({
+            desc: '添加规则成功'
+        })
     },
-    eidtRule(reqData) {
+    eidtRule(req, res, reqData) {
         var alarmRuleList = readFiles("./data/AlarmRules.json")
-        var contactsList = readFiles("./data/contacts.json")
-        var locations = readFiles('./data/locations.json').list
+        var contactsList = readFiles("./data/administrator.json")
+        var locations = readFiles('./data/province.json')
         var contacts = reqData.contact.split(',')
         var result = {
             id: reqData.id,
@@ -53,17 +54,15 @@ const alarmRule = {
             result.contacts.push(contactData)
         })
         var index = alarmRuleList.list.findIndex(item => item.id == reqData.id)
-        if (index === -1) return {
-            status: 'fail',
-            desc: '未找到此告警规则'
-        }
+        if (index === -1) return Res.error('600001', '无此告警规则')
         alarmRuleList.list.splice(index, 1, result)
         writeFiles('./data/AlarmRules.json', alarmRuleList)
-        alarmRuleList = readFiles("./data/AlarmRules.json")
-        return alarmRuleList
+        return Res.success({
+            desc: '修改成功!'
+        })
 
     },
-    getAlarmRuleList(reqData) {
+    getAlarmRuleList(req, res, reqData) {
         var alarmRuleList = readFiles("./data/AlarmRules.json")
         var {
             pageNo,
@@ -82,33 +81,22 @@ const alarmRule = {
         var total = searchRules.length
         searchRules = searchRules.slice((pageNo - 1) * pageSize, pageNo * pageSize)
 
-        return {
+        return Res.success({
             list: searchRules,
             total: total
-        }
+        })
     },
-    deleteAlarmRule(reqData) {
+    deleteAlarmRule(req, res, reqData) {
         var alarmRuleList = readFiles("./data/AlarmRules.json")
         var id = reqData.id
         var deleteIndex = alarmRuleList.list.findIndex(item => item.id === id)
-        if (deleteIndex == -1) return {
-            status: 'fail',
-            desc: '告警规则id错误' + id
-        }
+        if (deleteIndex == -1) return Res.error('600001', '无此告警规则')
         alarmRuleList.list.splice(deleteIndex, 1)
 
         writeFiles('./data/AlarmRules.json', alarmRuleList)
-        return {
-            status: '成功'
-        }
-    },
-    getContacts() {
-        var contacts = readFiles('./data/contacts.json')
-        return Res.success(contacts.list)
-    },
-    getLocations() {
-        var locations = readFiles('./data/locations.json')
-        return locations.list
+        return Res.success({
+            desc: '删除成功!'
+        })
     }
 }
 module.exports = alarmRule

@@ -11,7 +11,7 @@ function getMapKey(map, url) {
 }
 
 
-const { administrator, task, error, role, province, alarmRule } = Controller
+const { administrator, task, error, role, province, alarmRule, alarmNotice } = Controller
 
 const MAP_URL = {//顺序很重要 遍历时是按照顺序进行的  /user /user/add 
     'default': Controller.default,
@@ -27,9 +27,11 @@ const MAP_URL = {//顺序很重要 遍历时是按照顺序进行的  /user /use
     '/api/role/delete': role.delete,
     '/api/province/array': province.array,
     '/api/flow/array': task.flow,
-    '/api/getContacts.do': alarmRule.getContacts,
-
-
+    '/api/alarm/addAlarm.do': alarmRule.addAlarm,
+    '/api/alarm/getRuleList.do': alarmRule.getAlarmRuleList,
+    '/api/alarm/deleteRule.do': alarmRule.deleteAlarmRule,
+    '/api/alarm/editAlarm.do': alarmRule.eidtRule,
+    '/api/alarm/getNoticeList.do': alarmNotice.getAlarmNoticeList
 }
 
 
