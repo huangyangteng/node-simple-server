@@ -14,6 +14,7 @@ const server = http.createServer((req, res) => {
         url = '/index.html'
     }
     console.log("TCL:URL")
+    console.log("TCL:111")
     console.log("TCL: url", url)
 
     if (typeof mapKey == 'undefined') {//如果是静态资源,从www文件夹下读取
