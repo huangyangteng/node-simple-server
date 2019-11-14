@@ -1,0 +1,416 @@
+[
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "B",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "2",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "CCX47UP7XDT"
+	},
+	{
+		"alarm_type": "3",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "5",
+		"location": {
+			"id": "15",
+			"nameCN": "内蒙古自治区",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "CCX47UP7XDT"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	},
+	{
+		"alarm_type": "1",
+		"location": {
+			"id": "11",
+			"nameCN": "北京市",
+			"name": "",
+			"businessOnPay": 0,
+			"provinceBossOn": 1,
+			"provinceBossOnInstruction": "Ktsp",
+			"provinceBossOff": 0,
+			"provinceBossOffInstruction": "qxsp"
+		},
+		"alarmtime": "2019-08-12 12:00:00",
+		"counttime": "2019-08-12 12:00:00",
+		"alarm_level": "A",
+		"detail": "无",
+		"rule_code": "M46579R9Y13"
+	}
+]
