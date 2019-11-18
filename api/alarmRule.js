@@ -2,7 +2,8 @@ const { getRandomNumber, readFiles, writeFiles } = require('../tools/tool')
 
 const Res = require('./resCommon')
 const alarmRule = {
-    addAlarm(req, res, reqData) {
+    addAlarm(req, res) {
+        var reqData = req.data
         var alarmRuleList = readFiles("./data/AlarmRules.json")
         var contactsList = readFiles("./data/administrator.json")
         var locations = readFiles('./data/province.json')
@@ -31,7 +32,8 @@ const alarmRule = {
             desc: '添加规则成功'
         })
     },
-    eidtRule(req, res, reqData) {
+    eidtRule(req, res) {
+        var reqData = req.data
         var alarmRuleList = readFiles("./data/AlarmRules.json")
         var contactsList = readFiles("./data/administrator.json")
         var locations = readFiles('./data/province.json')
@@ -62,7 +64,8 @@ const alarmRule = {
         })
 
     },
-    getAlarmRuleList(req, res, reqData) {
+    getAlarmRuleList(req, res) {
+        var reqData = req.query
         var alarmRuleList = readFiles("./data/AlarmRules.json")
         var {
             pageNo,
@@ -86,7 +89,8 @@ const alarmRule = {
             total: total
         })
     },
-    deleteAlarmRule(req, res, reqData) {
+    deleteAlarmRule(req, res) {
+        var reqData = req.query
         var alarmRuleList = readFiles("./data/AlarmRules.json")
         var id = reqData.id
         var deleteIndex = alarmRuleList.list.findIndex(item => item.id === id)

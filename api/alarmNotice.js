@@ -1,9 +1,10 @@
-const { getRandomNumber, readFiles, writeFiles } = require('../tools/tool')
+const {readFiles } = require('../tools/tool')
 
 const Res = require('./resCommon')
 
 const alarmNotice = {
-    getAlarmNoticeList(req, res, reqData) {
+    getAlarmNoticeList(req, res) {
+        var reqData = req.query
         let alarmNoticeList = readFiles('./data/alarmNoticeList.json')
         let {
             pageNo,
