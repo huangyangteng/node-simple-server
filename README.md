@@ -1,6 +1,10 @@
-# nodejs测试接口
+# nodejs编写测试接口
 
 >node启动地址：http://10.1.62.116:55555/
+>
+>github地址：https://github.com/huangyangteng/node-simple-server.git
+
+[toc]
 
 # 项目说明
 
@@ -32,7 +36,7 @@ nodemon server.js
 # 启动服务为进程
 pm2 start server.js --name node-monitor
 # 查看日志
-pm2 logs
+pm2 log
 # 杀死进程
 pm2 delete node-monitor
 # 重启服务
@@ -41,7 +45,23 @@ pm2 restart node-monitor
 
 
 
+
+
 # 编写接口流程
+
+## 接口规范
+
+* 后台处理的请求格式为 `json` 格式，即`Content-type:application/json`
+* 后台响应的数据格式也为`json`格式
+
+## 说明
+
+* get请求的参数，这种形式：'?name=ming&pass=12'从`req.query`中取到
+* get请求的参数，这种形式：'/user/123'从`req.params`中取到
+* post请求的参数从`req.data`中取到
+* 数据使用文件保存，不使用数据库
+
+## 流程-例子
 
 
 以`角色管理`为例，接口文档如下：
@@ -66,7 +86,6 @@ const Res=require('./resCommon')
 const role={
 	all(){//获取所有角色
         let resData=JSON.parse(fs.readFileSync('data/role.json').toString())
-        resData.forEach((item,index)=>item.id=index+1)
         return Res.success(resData)
   },
   add(){//增加一条数据
@@ -129,76 +148,5 @@ module.exports={
 }
 ```
 
-# git协作流程
 
-> 仓库地址：
->
-> ​	https: https://github.com/huangyangteng/node-simple-server.git
->
-> ​    ssh:    git@github.com:huangyangteng/node-simple-server.git
->
-> git教程：https://www.liaoxuefeng.com/wiki/896043488029600
-
-**总体思想：master分支用于发布到服务器，develop分支用于开发，但是只合并代码，不直接在上面开发，开发人员自己从develop分支上创建其他分支进行开发，完成后合并到develop分支，合并的时候可能产生冲突，解决后再推送到远程develop分支**，**到需要发布到服务器的时候，远程master分支合并develop分支的代码就行了**
-
-## 一.master分支
-
-> master分支用于将最新的代码更新至服务器，只接受来自develop分支的合并请求，不可在此分支上直接开发
-
-## 二.develop分支
-
-> develop分支是所有开发人员共同维护的开发分支，接受来自其他分支的合并请求，不可在此分支上直接开发
-
-## 三.开发流程
-
-### 1.克隆远程仓库
-
-使用https的地址不需要验证身份
-
-```
-git clone https://github.com/huangyangteng/node-simple-server.git
-```
-
-### 2.新建并切换到develop分支
-
-```nginx
-git checkout  -b develop
-```
-
-### 3.分支关联到远程develop
-
-```nginx
-git branch --set-upstream-to=origin/develop develop
-```
-
-### 4.拉取远程提交
-
-```nginx
-git pull
-```
-
-### 5.切换到个人分支开发
-
-```nginx
-git checkout -b my-branch
-```
-
-### 6.切换到develop分支合并个人分支
-
-```nginx
-git checkout develop
-git merge my-branch
-```
-
-### 7.推送develop分支
-
-```nginx
-git push
-```
-
-有可能远程develop分支有别人先推送的代码，则需要先拉取代码，解决冲突再推送
-
-### 8.在远程合并develop分支到master分支上
-
-注意，此操作在github进行
 
