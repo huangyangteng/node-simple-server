@@ -6,7 +6,7 @@ const { MAP_URL, getMapKey } = require('./MAP_URL')
 const Res = require('./api/resCommon')
 
 const server = http.createServer((req, res) => {
-    let { url, headers } = req
+    let { url, headers,method } = req
 
     const mapKey = getMapKey(MAP_URL, url)
 
@@ -28,6 +28,7 @@ const server = http.createServer((req, res) => {
             }
             res.end()
         })
+
     } else {//如果是接口,从MAP_URL中进行匹配，执行对应的Controller
         //登录接口不需要验证
         res.writeHead(200, { 'Content-Type': 'text/plain;charset=utf-8' })//防止中文乱码
@@ -36,18 +37,21 @@ const server = http.createServer((req, res) => {
 
         if (result.validation || url == '/api/administrator/login') {//验证通过
             // const resData=MAP_URL[mapKey](req,res)
+
             if (req.method === 'POST') {
                 let reqData = ''
                 req.on('data', (buffer) => {
                     reqData += buffer
                 })
                 req.on('end', () => {
-                    reqData = qs.parse(reqData)
-                    getResult(mapKey, req, res, reqData)
+                    req.data=JSON.parse(reqData)
+                    getResult(mapKey, req, res)
                 })
             } else {
-                let reqData = req.method === 'GET' ? URL.parse(url, true).query : null
-                getResult(mapKey, req, res, reqData)
+                req.query=URL.parse(url,true).query
+                URL.parse(url,true)
+                req.params=url.split('/').pop()
+                getResult(mapKey, req, res)
             }
 
 
@@ -64,6 +68,7 @@ const server = http.createServer((req, res) => {
 
 function getResult(mapKey, req, res, reqData) {
     const p = MAP_URL[mapKey](req, res, reqData)
+    
     if (typeof p.then == 'undefined') {
         setTimeout(() => {
             res.write(JSON.stringify(p))
@@ -71,6 +76,7 @@ function getResult(mapKey, req, res, reqData) {
         }, 500)
     } else {
         p.then((resData) => {
+        console.log("TCL: getResult -> resData", resData)
             res.write(JSON.stringify(resData))
             res.end()
         }).catch((errData) => {

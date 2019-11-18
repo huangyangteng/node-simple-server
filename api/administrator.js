@@ -12,6 +12,7 @@ class Admin{
         this.adminList=adminList
     }
     login(reqData){
+        console.log("TCL: Admin -> login -> reqData", reqData.adminName)
         if(!reqData.adminName || !reqData.adminPassword){
             return Res.error('80003','参数填错了')
         }
@@ -56,19 +57,10 @@ class Admin{
 const administrator={
 
     login(req){
-        const {method} =req
-        return new Promise(function(resolve,reject){
-            let arr=[]
-            req.on('data',(buffer)=>{
-                arr.push(buffer)
-            })
-            req.on('end',()=>{
-                let reqData=JSON.parse(arr.concat().toString())
-                let admin=new Admin()
-                let result=admin.login(reqData)
-                resolve(result)
-            })
-        })
+        const {data,method} =req
+        let admin=new Admin()
+        let result=admin.login(data)
+        return result
     },
     all(){
         let admin=new Admin()
