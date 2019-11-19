@@ -13,9 +13,6 @@ const server = http.createServer((req, res) => {
     if (url == '/') {//访问根目录时，默认访问下面的index.html
         url = '/index.html'
     }
-    console.log("TCL:URL")
-    console.log("TCL:111")
-    console.log("TCL: url", url)
 
     if (typeof mapKey == 'undefined') {//如果是静态资源,从www文件夹下读取
 
@@ -38,7 +35,7 @@ const server = http.createServer((req, res) => {
         if (result.validation || url == '/api/administrator/login') {//验证通过
             // const resData=MAP_URL[mapKey](req,res)
 
-            if (req.method === 'POST') {
+            if (req.method === 'POST' || req.method=='PUT') {
                 let reqData = ''
                 req.on('data', (buffer) => {
                     reqData += buffer
@@ -70,13 +67,10 @@ function getResult(mapKey, req, res, reqData) {
     const p = MAP_URL[mapKey](req, res, reqData)
     
     if (typeof p.then == 'undefined') {
-        setTimeout(() => {
-            res.write(JSON.stringify(p))
-            res.end()
-        }, 500)
+        res.write(JSON.stringify(p))
+        res.end()
     } else {
         p.then((resData) => {
-        console.log("TCL: getResult -> resData", resData)
             res.write(JSON.stringify(resData))
             res.end()
         }).catch((errData) => {

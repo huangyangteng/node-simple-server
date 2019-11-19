@@ -31,7 +31,9 @@ const MAP_URL = {//顺序很重要 遍历时是按照顺序进行的  /user /use
     '/api/alarm/getRuleList.do': alarmRule.getAlarmRuleList,
     '/api/alarm/deleteRule.do': alarmRule.deleteAlarmRule,
     '/api/alarm/editAlarm.do': alarmRule.eidtRule,
-    '/api/alarm/getNoticeList.do': alarmNotice.getAlarmNoticeList
+    '/api/alarm/getNoticeList.do': alarmNotice.getAlarmNoticeList,
+    '/api/task/array':task.array,
+    '/api/task':task.chooseMethod,
 }
 
 
