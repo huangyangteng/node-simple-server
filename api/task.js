@@ -91,7 +91,7 @@ class Task{
             }
             this.taskList.list.push(reqData)
             Tools.writeJsonToFile('data/task.json',this.taskList)
-            return Res.success({id:this.taskList.key})
+            return Res.success({id:this.taskList.key-1})
         }else{
             return Res.error('80003','参数不完整')
         }

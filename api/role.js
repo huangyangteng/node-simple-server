@@ -1,8 +1,8 @@
 const fs=require('fs')
 
 const Res=require('./resCommon')
-
-
+const Tools=require('./tools')
+const dayjs=require('dayjs')
 
 class RoleList{
     constructor(){
@@ -25,10 +25,9 @@ class RoleList{
     update(){
         fs.writeFileSync('data/role.json',JSON.stringify(this.getRoleList()))
     }
-    addRole(role,callback){
-        role.id=this.key
-        this.key++
-        this.list.push(role)
+    addRole(reqData){
+        reqData.id=this.key++
+        this.list.push(reqData)
         this.update()
         return Res.success({id:this.key-1})
     }
@@ -55,42 +54,25 @@ const role={
         return Res.success(roleList.getList())
     },
     add(req){
-        return new Promise(function(relove,reject){
-            let arr=[]
-            req.on('data',(buffer)=>{
-                arr.push(buffer)
-            })
-            req.on('end',()=>{
-                let reqData=JSON.parse(arr.concat().toString())
-                let roleList=new RoleList()
-                relove(roleList.addRole(reqData))
-            })
-
-
-        })
+        const {data,method}=req
+        let roleList= new RoleList()
+        console.log("TCL: add -> data", data)
+        if(method == 'POST'){
+            console.log(data)
+            return roleList.addRole(data)
+        }else{
+            return Res.error('800003','方法错误，应该为POST')
+        }
 
     },
     delete(req){
-        const {method} =req
-        return new Promise(function(relove,reject){
-            if(method== 'DELETE'){
-                let arr=[]
-                req.on('data',(buffer)=>{
-                    arr.push(buffer)
-                })
-                req.on('end',()=>{
-                    let reqData=Res.getReqData(arr)
-                    let roleList=new RoleList()
-                    let res=roleList.deleteRole(reqData.adminRoleId)
-                    relove(res)
-                })
-    
-            }else{
-                 reject(Res.error(80000))
-            }
-        })
-        
-        
+        const {method,data} =req
+        if(method=='DELETE'){
+            let roleList=new RoleList()
+            return roleList.deleteRole(data.adminRoleId)
+        }else{
+            return Res.error('800003','方法错误，应该为DELETE')
+        }
     }
     
     
