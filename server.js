@@ -41,7 +41,11 @@ const server = http.createServer((req, res) => {
                     reqData += buffer
                 })
                 req.on('end', () => {
-                    req.data=JSON.parse(reqData)
+                    if(reqData!=''){
+                        req.data=JSON.parse(reqData)
+                    }else{
+                        req.data=null
+                    }
                     getResult(mapKey, req, res)
                 })
             } else {

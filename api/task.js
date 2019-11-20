@@ -40,21 +40,30 @@ class Task{
 
         if(method=='GET'){//返回单个任务
             console.log('返回单个')
+            return this.getItem(params)
 
         }else if(method=='POST'){//增加任务
             console.log('-----------------------增加')
             let res=this.add(data)
             return res
         }else if(method=='PUT'){//编辑任务信息 和提高任务优先级
-            console.log('编辑或者提高任务优先级')
-            console.log('data',data)
+            console.log(url)
+            let params=url.split('/')
+            let [,,,taskId,taskPriority]=params
+            if(taskId && !data){//提高任务优先级
+                console.log('提高任务优先级')
+                return this.improvePriority(taskId,taskPriority)
+            }else{//编辑任务
+                console.log('编辑任务')
+                return this.edit(data)
+            }
         }else if(method=='DELETE'){
-            console.log('params',params)
             console.log('删除')
             return this.delete(params)
         }else{
             console.log('方法错误')
         }
+
     }
     add(reqData){
         if(Tools.validate(reqData,['createAdminId','flowId','provinceId'])){
@@ -137,8 +146,9 @@ class Task{
 
         return Res.success(resData)
     }
-    getItem(){
-
+    getItem(id){
+        let item=this.taskList.list.find(item=>item.id==id)
+        return Res.success(item)
     }
     delete(deleteId){
         console.log("TCL: Task -> delete -> deleteId", deleteId)
@@ -153,6 +163,27 @@ class Task{
 
 
     }
+    edit(reqData){
+        let item=this.taskList.list.find(item=>item.id==reqData.taskId)
+        if(typeof item=='undefined'){
+            return Res.error('800003','该任务不存在')
+        }else{
+            item=Object.assign(item,reqData)
+            Tools.writeJsonToFile('data/task.json',this.taskList)
+            return Res.success({id:reqData.taskId})
+        }
+    }
+    improvePriority(taskId,taskPriority){
+        let item=this.taskList.list.find(item=>item.id==taskId)
+        if(typeof item=='undefined'){
+            return Res.error('800003','该任务不存在')
+        }else{
+            item.taskPriority=taskPriority
+            Tools.writeJsonToFile('data/task.json',this.taskList)
+            return Res.success({id:taskId})
+        }
+    }
+
 }
 
 
