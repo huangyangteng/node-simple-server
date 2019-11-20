@@ -1,12 +1,11 @@
 const Res=require('./resCommon')
-const fs=require('fs')
-const tools=require('./tools')
+const Tools=require('./tools')
 
 const ADMIN_DATA_PATCH='data/administrator.json'
 
 class Admin{
     constructor(){
-        let adminList=tools.getJsonByFile(ADMIN_DATA_PATCH)
+        let adminList=Tools.getJsonByFile(ADMIN_DATA_PATCH)
         this.key=adminList.key
         this.list=adminList.list
         this.adminList=adminList
@@ -40,7 +39,7 @@ class Admin{
 
         reqData.id=this.adminList.key++
         this.list.push(reqData)
-        tools.writeJsonToFile(ADMIN_DATA_PATCH,this.adminList)
+        Tools.writeJsonToFile(ADMIN_DATA_PATCH,this.adminList)
 
         return Res.success({id:this.key})
         
@@ -67,18 +66,13 @@ const administrator={
         return admin.all()
     },
     add(req){
-        return new Promise((resolve,reject)=>{
-            let arr=[]
-            req.on('data',(buffer)=>{
-                arr.push(buffer)
-            })
-            req.on('end',()=>{
-                let reqData=JSON.parse(arr.concat().toString())
-                let admin=new Admin()
-                let result=admin.add(reqData)
-                resolve(result)
-            })
-        })
+        const {data,method}=req
+        if(method=='POST'){
+            let admin=new Admin()
+            return admin.add(data)
+        }else{
+            return Res.error('800003','方法错误，应为POST')
+        }
     },
     edit(){
 
