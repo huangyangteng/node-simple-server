@@ -12,7 +12,24 @@ function filterBy(obj,key,value){
     }
 }
 
+function getArrayRandom(arr){
+    let randomIndex=Math.floor(Math.random()*arr.length)
+    return arr[randomIndex]
+}
+function getRandom(n){
+    return Math.floor(Math.random()*n)
 
+}
+function getN(n){
+    let t1=+new Date()
+    let t2=+new Date()
+    if(n<=13){
+        return t1.toString().slice(0,n)
+    }
+    
+    let str=t1+''+t2.toString().slice(0,6)
+    return str
+}
 class Task{
     constructor(){
         let taskList=Tools.getJsonByFile('data/task.json')
@@ -25,7 +42,7 @@ class Task{
             console.log('返回单个')
 
         }else if(method=='POST'){//增加任务
-            console.log('增加')
+            console.log('-----------------------增加')
             let res=this.add(data)
             return res
         }else if(method=='PUT'){//编辑任务信息 和提高任务优先级
@@ -41,14 +58,31 @@ class Task{
     }
     add(reqData){
         if(Tools.validate(reqData,['createAdminId','flowId','provinceId'])){
-            reqData.id=this.taskList.key
-            this.taskList.key+=1
-            reqData.task='123456789abcdef'
-            reqData.createDate=dayjs().format('YYYY-MM-DD HH:mm:ss')
-        
+            reqData.id=this.taskList.key++
+            reqData.task=getN(19)
+            reqData.createDate=dayjs().format('YYYY-MM-DD')
+            reqData.createTime=dayjs().format('HH:mm:ss')
+            reqData.taskState=getArrayRandom(['00','01','02','09','10','20'])
+            reqData.taskResult=getArrayRandom(['000','100','101','102','103','104','200','201','202','300','301','302','303','304','305','306','400','500'])
+            reqData.taskRunRecord={
+                currentActionId:1,
+                errorActionId:2,
+                recordDate:dayjs().format('YYYY-MM-DD'),
+                recordTime:dayjs().format('HH:mm:ss'),
+                durationTotal:Math.floor(Math.random()*600)+10,
+                durationWait:Math.floor(Math.random()*100)+5,
+                createDate:dayjs().format('YYYY-MM-DD'),
+                updateDate:dayjs().format('YYYY-MM-DD')
+            }
+            reqData.equipmentRunLog={
+                id:getRandom(1000)+1,
+                equipmentId:getRandom(10)+1,
+                taskId:getRandom(200)+1,
+                flowId:getRandom(6)
+            }
             this.taskList.list.push(reqData)
             Tools.writeJsonToFile('data/task.json',this.taskList)
-            return Res.success({id:this.taskList.key--})
+            return Res.success({id:this.taskList.key})
         }else{
             return Res.error('80003','参数不完整')
         }
@@ -116,7 +150,6 @@ class Task{
             Tools.writeJsonToFile('data/task.json',this.taskList)
             return Res.success({deleteId})
         }
-        console.log("TCL: Task -> delete -> deleteIndex", deleteIndex)
 
 
     }
@@ -129,7 +162,6 @@ class Task{
 const task={
     chooseMethod(req){
         let task=new Task()
-        console.log("TCL: chooseMethod -> task.choose(req)", task.choose(req))
         return task.choose(req)
     },
     array(req){
