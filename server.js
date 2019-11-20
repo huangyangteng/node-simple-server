@@ -33,30 +33,25 @@ const server = http.createServer((req, res) => {
         var result = Res.interceptor(headers.jwt)
 
         if (result.validation || url == '/api/administrator/login') {//验证通过
-            // const resData=MAP_URL[mapKey](req,res)
 
-            if (req.method === 'POST' || req.method=='PUT') {
-                let reqData = ''
-                req.on('data', (buffer) => {
-                    reqData += buffer
-                })
-                req.on('end', () => {
-                    if(reqData!=''){
-                        req.data=JSON.parse(reqData)
-                    }else{
-                        req.data=null
-                    }
-                    getResult(mapKey, req, res)
-                })
-            } else {
-                req.query=URL.parse(url,true).query
-                URL.parse(url,true)
-                req.params=url.split('/').pop()
+
+            //----------- get请求 参数拼接
+            req.query=URL.parse(url,true).query
+            URL.parse(url,true)
+            req.params=url.split('/').pop()
+            //----------- post请求 参数拼接
+            let reqData = ''
+            req.on('data', (buffer) => {
+                reqData += buffer
+            })
+            req.on('end', () => {
+                if(reqData!=''){
+                    req.data=JSON.parse(reqData)
+                }else{
+                    req.data=null
+                }
                 getResult(mapKey, req, res)
-            }
-
-
-
+            })
 
         } else {
             res.write(JSON.stringify(result.res))
