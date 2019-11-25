@@ -68,7 +68,7 @@ class Task{
     add(reqData){
         if(Tools.validate(reqData,['createAdminId','flowId','provinceId'])){
             reqData.id=this.taskList.key++
-            reqData.task=getN(19)
+            reqData.taskCode=getN(19)
             reqData.createDate=dayjs().format('YYYY-MM-DD')
             reqData.createTime=dayjs().format('HH:mm:ss')
             reqData.taskState=getArrayRandom(['00','01','02','09','10','20'])
