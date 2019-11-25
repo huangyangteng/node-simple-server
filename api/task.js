@@ -5,10 +5,10 @@ const dayjs=require('dayjs')
 
 
 function filterBy(obj,key,value){
-    if(value != ''){
-        return obj.filter(item=>item[key]==value)
-    }else{
+    if(value=='' || value==-1){
         return obj
+    }else{
+        return obj.filter(item=>item[key]==value)
     }
 }
 
