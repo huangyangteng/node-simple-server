@@ -102,19 +102,21 @@ class Task{
         let {taskState='',taskResult='',infinite='',flowId='',provinceId='',createDate='{}',taskCode=''}=query
         let {countPerPage=20,currentPage=1}=query
         let {order}=query
-        
+
+         
         
         
         resData=filterBy(resData,'taskState',taskState)
         resData=filterBy(resData,'taskResult',taskResult)
         resData=filterBy(resData,'infinite',infinite)
-        console.log("TCL: Task -> getAll -> resData", resData)
         resData=filterBy(resData,'flowId',flowId)
         resData=filterBy(resData,'provinceId',provinceId)
         resData=filterBy(resData,'taskCode',taskCode)
         
 
-
+        if(createDate==''){
+            createDate='{}'
+        }
         createDate=JSON.parse(createDate)
 
         if(Array.isArray(createDate)){
