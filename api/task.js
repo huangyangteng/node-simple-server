@@ -99,12 +99,11 @@ class Task{
     getAll(req){
         let {query}=req
         let resData=this.taskList.list
-        let {taskState='',taskResult='',infinite='',flowId='',provinceId='',createDate='{}',taskCode=''}=query
+        let {taskState='',taskResult='',infinite='',flowId='',provinceId='',createDate=['1996-11-15','2222-12-12'],taskCode=''}=query
         let {countPerPage=20,currentPage=1}=query
         let {order}=query
 
          
-        
         
         resData=filterBy(resData,'taskState',taskState)
         resData=filterBy(resData,'taskResult',taskResult)
@@ -114,10 +113,6 @@ class Task{
         resData=filterBy(resData,'taskCode',taskCode)
         
 
-        if(createDate==''){
-            createDate='{}'
-        }
-        createDate=JSON.parse(createDate)
 
         if(Array.isArray(createDate)){
             let [start,end]=createDate
