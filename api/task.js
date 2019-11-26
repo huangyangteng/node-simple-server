@@ -98,19 +98,19 @@ class Task{
     }
     getAll(req){
         let {query}=req
-        let resData=this.taskList.list
+        let resData=this.taskList
         let {taskState='',taskResult='',infinite='',flowId='',provinceId='',createDate=['1996-11-15','2222-12-12'],taskCode=''}=query
         let {countPerPage=20,currentPage=1}=query
         let {order}=query
 
          
         
-        resData=filterBy(resData,'taskState',taskState)
-        resData=filterBy(resData,'taskResult',taskResult)
-        resData=filterBy(resData,'infinite',infinite)
-        resData=filterBy(resData,'flowId',flowId)
-        resData=filterBy(resData,'provinceId',provinceId)
-        resData=filterBy(resData,'taskCode',taskCode)
+        resData.list=filterBy(resData.list,'taskState',taskState)
+        resData.list=filterBy(resData.list,'taskResult',taskResult)
+        resData.list=filterBy(resData.list,'infinite',infinite)
+        resData.list=filterBy(resData.list,'flowId',flowId)
+        resData.list=filterBy(resData.list,'provinceId',provinceId)
+        resData.list=filterBy(resData.list,'taskCode',taskCode)
         
 
 
@@ -118,7 +118,7 @@ class Task{
             let [start,end]=createDate
             let startT = dayjs(start)
             let endT=dayjs(end)
-            resData=resData.filter(item=>{//在startT之后，在endT之前
+            resData.list=resData.list.filter(item=>{//在startT之后，在endT之前
                let curT=dayjs(item.createDate)
                return  curT.isBefore(endT) && curT.isAfter(startT)
             })
@@ -128,9 +128,9 @@ class Task{
         let start=(currentPage-1)*countPerPage
         let end=currentPage*countPerPage
 
-        resData=resData.slice(start,end)
+        resData.list=resData.list.slice(start,end)
 
-        resData.sort((r1,r2)=>{//r1 在 r2 之前
+        resData.list.sort((r1,r2)=>{//r1 在 r2 之前
             return dayjs(r1.createDate).isBefore(dayjs(r2.createDate))
         })
 
